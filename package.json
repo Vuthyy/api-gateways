@@ -1,0 +1,34 @@
+{
+  "name": "api-proxy-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "ts-node src/server.ts", 
+    "dev": "nodemon --watch src --exec ts-node src/server.ts", 
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@aws-sdk/client-cloudwatch-logs": "^3.675.0",
+    "@types/cookie-parser": "^1.4.7",
+    "@types/cors": "^2.8.17",
+    "@types/jwt-decode": "^3.1.0",
+    "aws-jwt-verify": "^4.0.1",
+    "axios": "^1.7.7",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "http-proxy-middleware": "^3.0.3",
+    "joi": "^17.13.3",
+    "jwt-decode": "^4.0.0",
+    "winston": "^3.15.0",
+    "winston-cloudwatch": "^6.3.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/http-proxy-middleware": "^1.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  }
+}

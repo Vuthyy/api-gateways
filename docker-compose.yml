@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  backend_sample:
+    container_name: api_gateway_sample_container
+    build:
+      context: .
+      dockerfile: Dockerfile.proxy
+    restart: always
+    ports:
+      - "4000:4000"
+    env_file: ./src/configs/.env.development
+    environment:
+      - DOCKER_ENV=true
+    volumes:
+      - .:/app # Update volume to mount the entire working directory, not just ./src
+    networks:
+      - backend_network
+
+networks:
+  backend_network:
+    driver: bridge

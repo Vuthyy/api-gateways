@@ -1,0 +1,23 @@
+# Use an official Node.js slim image as a base image to reduce image size
+FROM node:18-slim
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy package.json and yarn.lock files to install dependencies
+COPY package.json yarn.lock ./
+
+# Install dependencies (both dev and prod)
+RUN yarn install --frozen-lockfile
+
+# Copy the rest of the application code
+COPY . .
+
+# Build the TypeScript code
+RUN yarn build
+
+# Expose the port the proxy will run on
+EXPOSE 4000
+
+# Command to run the API proxy
+CMD ["yarn", "start"]
